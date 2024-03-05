@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Downloader</title>
+</head>
+<body>
+    <div id="imagePreview">
+        <img src="example.jpg" alt="Preview Image" width="300">
+    </div>
+    <button onclick="downloadImage()">Download Image</button>
+
+    <script>
+        function downloadImage() {
+            // Get the image source URL
+            var imageUrl = document.querySelector('#imagePreview img').src;
+
+            // Create a link element
+            var link = document.createElement('a');
+
+            // Set the href attribute to the image URL
+            link.href = imageUrl;
+
+            // Set the download attribute to prompt the user to save the file with a specific name
+            link.download = 'image.jpg';
+
+            // Append the link to the document body
+            document.body.appendChild(link);
+
+            // Trigger a click event on the link to start the download
+            link.click();
+
+            // Remove the link from the document body
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
